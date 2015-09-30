@@ -1,0 +1,94 @@
+
+// DEFIND SIZES
+$thumbSize: 400px;
+$small: 480px;
+$medium: 670px;
+$inbetween: 900px;
+$large: 1120px;
+$pxratio: 2;
+$retinaWebKit: -webkit-min-device-pixel-ratio;
+$retina: min-device-pixel-ratio;
+$min: min-width;
+$max: max-width;
+
+// DEFINE COLOURS
+$organge:rgb(227,94,48);
+$darkOrgange:rgb(255,100,50);
+$white:#fff;
+$yellow:rgb(251,230,57);
+$blue:rgb(44,157,199);
+$black:#000;
+$backgroundcolour:#fff;
+
+// Other random things...
+$width: 90%;
+$indsideWidth: 1200px;
+$min-width:500px;
+
+$bigfont:2.3em;
+$bigfontline:1.35em;
+
+
+@mixin at-query ($constraint, $viewport1, $viewport2:null) {
+	@if $constraint == $min {
+		@media screen and ($min: $viewport1) {
+			@content;
+		}
+	} @else if $constraint == $max {
+		@media screen and ($max: $viewport1) {
+			@content;
+		}
+	} @else if $constraint == $retina {
+		@media only screen and ($retinaWebKit: $viewport1), only screen and ($retina: $viewport1) {
+			@content;
+		}
+	} @else {
+		@media screen and ($min: $viewport1) and ($max: $viewport2) {
+			@content;
+		}
+	}
+}
+
+@mixin retina () {
+	@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+		@content;
+	}
+}
+
+@mixin vendorize($name, $argument) {
+	-webkit-#{$name}: #{$argument};
+	-ms-#{$name}: #{$argument};
+	-moz-#{$name}: #{$argument};
+	-o-#{$name}: #{$argument};
+	#{$name}: #{$argument};
+}
+
+@mixin transition($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	-o-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+	-webkit-animation: #{$str};
+}
+
+
