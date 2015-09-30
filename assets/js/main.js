@@ -20,6 +20,7 @@ var app = {
 		if (event.type == "touchmove") {
 			event.pageY = event.originalEvent.changedTouches[0].clientY || event.originalEvent.changedTouches[0].pageY;
 			event.pageX = event.originalEvent.changedTouches[0].clientX || event.originalEvent.changedTouches[0].pageX;
+			console.log(event.pageX);
 		} else {
 			var now = new Date();
 			if (now - app.previous < 50) {
