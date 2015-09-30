@@ -18,8 +18,8 @@ var app = {
 	},
 	mouse_move_event: function(event) {
 		if (event.type == "touchmove") {
-			event.pageY = event.originalEvent.changedTouches[0].clientY
-			event.pageX = event.originalEvent.changedTouches[0].clientX
+			event.pageY = event.originalEvent.changedTouches[0].clientY || event.originalEvent.changedTouches[0].pageY;
+			event.pageX = event.originalEvent.changedTouches[0].clientX || event.originalEvent.changedTouches[0].pageX;
 		} else {
 			var now = new Date();
 			if (now - app.previous < 50) {
