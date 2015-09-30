@@ -30,7 +30,9 @@
 				border-radius: 100%;
 				// background-color: #fff;
 				border: 1px solid $white;
+				z-index: 3;
 				img{
+					// @include vendorize(transition, transform 0.25s ease-in-out);
 					position: absolute;
 					top: 0%;
 					left: 0%;
